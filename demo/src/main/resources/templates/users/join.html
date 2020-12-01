@@ -17,7 +17,7 @@
     <table>
         <tr>
             <td>ID</td>
-            <td><input id="userId" type="text"></td>
+            <td><input id="userid" type="text"></td>
         </tr>
         <tr>
             <td>PW</td>
@@ -43,13 +43,21 @@
          $.ajax({
              url:'/users',
              type:'POST',
-             data:JSON.stringify({userId:document.getElementById('userId').value,
+             data:JSON.stringify({userId:document.getElementById('userid').value,
                                   password:document.getElementById('password').value,
-                                  name:document.stringify('name').value}),
+                                  name:document.getElementById('name').value}),
              dataType:'json',
              contentType:'Application/json',
-             success: d =>('{$d.name}님 환영합니다'),
-             error: e => {}
+             success: d => {
+                 if(d.name === 'FALURE'){
+                 alert('회원가입 실패')
+                 }else{
+                    alert(`{$d.name} 가입 성공`)
+                 }
+                },
+             error: e => {
+                 alert(`%{e} 을 이유로 전송 실패`)
+             }
          })
          })
          document.getElementById('cancel-btn')
