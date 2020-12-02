@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 public interface UserService {
     public int join(UserDto user);
 
-    public int login(UserDto user);
+    public UserDto login(UserDto user);
 }

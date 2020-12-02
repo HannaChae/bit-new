@@ -18,8 +18,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int login(UserDto user) {
-        return userRepository.insert(user);
+    public UserDto login(UserDto user) {
+        return userRepository.login(user);
     }
-
 }

@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @Component
 public class UserDto {
-    private String Userid, name, password;
+    private String userid, name, password;
 
 }

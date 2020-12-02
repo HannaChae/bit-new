@@ -36,34 +36,34 @@
     </table>
     </form>
     <script>
-         document.getElementById('join-btn')
-         .addEventListener('click', e=>{
-             e.preventDefault()
-         alert('회원가입 클릭')
-         $.ajax({
-             url:'/users',
-             type:'POST',
-             data:JSON.stringify({userId:document.getElementById('userid').value,
-                                  password:document.getElementById('password').value,
-                                  name:document.getElementById('name').value}),
-             dataType:'json',
-             contentType:'Application/json',
-             success: d => {
-                 if(d.name === 'FALURE'){
-                 alert('회원가입 실패')
-                 }else{
-                    alert(`{$d.name} 가입 성공`)
-                 }
-                },
-             error: e => {
-                 alert(`%{e} 을 이유로 전송 실패`)
-             }
-         })
-         })
-         document.getElementById('cancel-btn')
-         .addEventListener('click', e=>{
-         alert('취소 클릭')
-         })
+            document.getElementById('join-btn')
+            .addEventListener('click', e=>{
+                e.preventDefault()
+            alert('회원가입 클릭')
+            $.ajax({
+                url:'/users',
+                type:'POST',
+                data:JSON.stringify({userid:document.getElementById('userid').value,
+                            password:document.getElementById('password').value,
+                            name:document.getElementById('name').value}),
+                dataType:'json',
+                contentType:'application/json',
+                success: d => {
+                              if(d.name === 'FAILURE'){
+                                alert('회원가입 실패')
+                                }else{
+                                alert(`${d.name} 가입 성공`)
+                                }
+                            },
+                error: e => {
+                    alert(`${e} 을 이유로 전송 실패`)
+                }
+            })
+        })
+        document.getElementById('cancel-btn')
+        .addEventListener('click', e => {
+            alert('취소 클릭')
+        })
     </script>
 </body>
 </html>
