@@ -9,4 +9,11 @@ public interface UserRepository {
     public int insert(UserDto user);
 
     public UserDto login(UserDto user);
+
+    public UserDto selectById(String userid);
+
+    public int update(UserDto user);
+
+    public int delete(UserDto user);
+
 }
